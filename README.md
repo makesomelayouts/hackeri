@@ -1,6 +1,6 @@
 # Хацкеры
 
-Стек: Vite, React, React-router, TailwindCSS, ESLint, Prettier
+Стек: [Vite](https://vite.dev/), [React](https://react.dev/), [React-router](https://reactrouter.com/start/data/installation), [TailwindCSS](https://tailwindcss.com/), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
 
 Установить пакеты локально в проект:
 `npm install`
