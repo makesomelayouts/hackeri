@@ -1,10 +1,7 @@
-import Header from "@widgets/Header";
-
 function App() {
   return (
     <>
-      <Header />
-      <div className="text-center">Hello, Worldo!!!!</div>
+      <div className="text-red-300 text-center">Главная</div>
     </>
   );
 }
