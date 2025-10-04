@@ -4,13 +4,15 @@ import { Outlet } from "react-router";
 
 function Layout() {
   return (
-    <>
-      <div className="bg-[#010207]">
-        <Header />
+    <div className="bg-[#010207] min-h-[100dvh] flex flex-col font-unbounded">
+      <Header />
+
+      <main className="grow">
         <Outlet />
-        <Footer />
-      </div>
-    </>
+      </main>
+
+      <Footer />
+    </div>
   );
 }
 

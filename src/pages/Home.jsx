@@ -1,4 +1,4 @@
-function App() {
+function Home() {
   return (
     <>
       <div className="text-red-300 text-center">Главная</div>
@@ -6,4 +6,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

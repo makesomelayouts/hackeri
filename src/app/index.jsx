@@ -1,12 +1,12 @@
 import { createRoot } from "react-dom/client";
-import "@app/providers/index.css";
+import "@shared/assets/styles/index.css";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Characters from "@pages/Characters";
 import Rules from "@pages/Rules";
 import Shop from "@pages/Shop";
-import Layout from "./Layout";
-import App from "./App";
+import Layout from "@shared/ui/layout/Layout";
+import Home from "@pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <App />,
+        element: <Home />,
       },
       {
         path: "/characters",
