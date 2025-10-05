@@ -1,7 +1,12 @@
+import Header from "@widgets/Header";
+
 function Shop() {
   return (
     <>
-      <div className="text-red-300 text-center">Магазин</div>
+      <section>
+        <Header />
+        <div className="text-red-300 text-center">Магазин</div>
+      </section>
     </>
   );
 }

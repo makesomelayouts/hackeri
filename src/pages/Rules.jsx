@@ -1,7 +1,12 @@
+import Header from "@widgets/Header";
+
 function Rules() {
   return (
     <>
-      <div className="text-red-300 text-center">Правила</div>
+      <section>
+        <Header />
+        <div className="text-red-300 text-center">Правила</div>
+      </section>
     </>
   );
 }
