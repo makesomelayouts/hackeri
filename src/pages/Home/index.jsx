@@ -3,6 +3,9 @@ import Footer from "@widgets/Footer";
 import Header from "@widgets/Header";
 import hero_intro from "./assets/hero/hero_intro.png";
 import arrow_down from "./assets/hero/arrow_down.png";
+import ily from "./assets/welcome/anime_girl_ily.png";
+import ily_circle from "./assets/welcome/ily_circle.png";
+import circle from "./assets/welcome/circle.png";
 
 function Home() {
   return (
@@ -18,9 +21,23 @@ function Home() {
         </div>
       </section>
 
-      <section className="min-h-screen flex flex-col">
-        <div className="max-w-[1140px] mx-auto flex-grow">
-          <p className="text-[#F5E2FF] text-[32px] mb-8 mt-[35px]">
+      <section className="relative min-h-screen flex flex-col">
+        <div className="absolute bottom-20 right-0">
+          <img
+            src={ily_circle}
+            alt="Purple circle"
+            className="object-cover w-[1000px] h-[1000px]"
+          />
+          <img
+            src={ily}
+            alt="Girl Ily"
+            className="absolute bottom-0 right-0 w-full h-full mix-blend-color-dodge max-w-[625px] max-h-[837px]"
+          />
+        </div>
+
+        <img src={circle} className="absolute top-0 left-0" />
+        <div className="max-w-[1140px] w-full mx-auto flex-grow">
+          <p className="text-[#f5e2ff] text-[32px] mb-8 mt-[35px] max-w-[874px]">
             Добро пожаловать в мир «Хацкеров» - настольной игры, где вы
             примерите на себя роль элитного киберпреступника, стремящегося к
             вершинам цифровой иерархии! Пробирайтесь сквозь слои защиты,

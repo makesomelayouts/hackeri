@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="py-[42px] px-4 bg-[#0D031B]">
+    <footer className="py-[42px] px-4 bg-[#0D031B] z-10">
       <div className="max-w-[1140px] mx-auto">
         <p className="text-[#f5e2ff] text-2xl">2025 © Хацкеры</p>
       </div>
