@@ -10,7 +10,7 @@ import circle from "./assets/welcome/circle.png";
 function Home() {
   return (
     <>
-      <section className="min-h-dvh bg-[url(/src/pages/Home/assets/hero/hero_background.png)]">
+      <section className="snap-start h-dvh bg-[url(/src/pages/Home/assets/hero/hero_background.png)]">
         <Header />
         <div className="flex flex-col justify-center items-center">
           <img
@@ -21,22 +21,25 @@ function Home() {
         </div>
       </section>
 
-      <section className="relative min-h-screen flex flex-col">
+      <section className="snap-start h-dvh relative flex flex-col">
         <div className="absolute bottom-20 right-0">
           <img
             src={ily_circle}
             alt="Purple circle"
-            className="object-cover w-[1000px] h-[1000px]"
+            className="object-cover w-[1000px] h-[1000px] pointer-events-none select-none"
           />
           <img
             src={ily}
             alt="Girl Ily"
-            className="absolute bottom-0 right-0 w-full h-full mix-blend-color-dodge max-w-[625px] max-h-[837px]"
+            className="absolute bottom-0 right-0 w-full h-full mix-blend-color-dodge max-w-[625px] max-h-[837px] pointer-events-none select-none"
           />
         </div>
 
-        <img src={circle} className="absolute top-0 left-0" />
-        <div className="max-w-[1140px] w-full mx-auto flex-grow">
+        <img
+          src={circle}
+          className="absolute top-0 left-0 pointer-events-none select-none"
+        />
+        <div className="max-w-[1140px] w-full mx-auto grow">
           <p className="text-[#f5e2ff] text-[32px] mb-8 mt-[35px] max-w-[874px]">
             Добро пожаловать в мир «Хацкеров» - настольной игры, где вы
             примерите на себя роль элитного киберпреступника, стремящегося к
