@@ -1,6 +1,6 @@
 # Хацкеры
 
-Стек: [Vite](https://vite.dev/), [React](https://react.dev/), [React-router](https://reactrouter.com/start/data/installation), [TailwindCSS](https://tailwindcss.com/), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
+Стек: [Vite](https://vite.dev/), [React](https://react.dev/), [React-router](https://reactrouter.com/start/data/installation), [TailwindCSS](https://tailwindcss.com/), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [FSD](https://feature-sliced.design/docs/get-started/overview)
 
 Шрифты: Unbounded, Bowler
 
