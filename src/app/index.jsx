@@ -1,12 +1,12 @@
-import { createRoot } from "react-dom/client";
-import "@shared/assets/styles/index.css";
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
+import Characters from "@pages/Characters";
+import Home from "@pages/Home";
 import Rules from "@pages/Rules";
 import Shop from "@pages/Shop";
+import "@shared/assets/styles/index.css";
 import Layout from "@shared/ui/layout/Layout";
-import Home from "@pages/Home";
-import Characters from "@pages/Characters";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
 
 const router = createBrowserRouter([
   {

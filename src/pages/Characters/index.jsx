@@ -1,8 +1,8 @@
+import arrow_down from "@pages/Characters/assets/arrow_down.png";
+import arrow_top from "@pages/Characters/assets/arrow_top.png";
+import circle from "@shared/assets/images/circle.png";
 import Footer from "@widgets/Footer";
 import Header from "@widgets/Header";
-import circle from "@shared/assets/images/circle.png";
-import arrow_top from "@pages/Characters/assets/arrow_top.png";
-import arrow_down from "@pages/Characters/assets/arrow_down.png";
 
 function Characters() {
   return (

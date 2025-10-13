@@ -1,11 +1,11 @@
 import Button from "@shared/ui/button";
 import Footer from "@widgets/Footer";
 import Header from "@widgets/Header";
-import hero_intro from "./assets/hero/hero_intro.png";
 import arrow_down from "./assets/hero/arrow_down.png";
+import hero_intro from "./assets/hero/hero_intro.png";
 import ily from "./assets/welcome/anime_girl_ily.png";
-import ily_circle from "./assets/welcome/ily_circle.png";
 import circle from "./assets/welcome/circle.png";
+import ily_circle from "./assets/welcome/ily_circle.png";
 
 function Home() {
   return (
