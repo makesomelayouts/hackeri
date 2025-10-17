@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "ignoreDeprecations": "6.0",
     "paths": {
       "@app/*": ["./src/app/*"],
       "@entities/*": ["./src/entities/*"],
