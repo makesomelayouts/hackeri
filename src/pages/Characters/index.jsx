@@ -32,13 +32,13 @@ function Characters() {
               className="absolute top-60 left-140 max-w-[285px] pointer-events-none select-none"
             />
 
-            <div className="absolute -left-35 flex flex-col justify-center items-center text-center pl-12 pr-[61px] pt-[104px] pb-[92px] bg-[url('./src/pages/Characters/assets/bg.svg')] bg-no-repeat max-w-[520px] w-full">
+            <div className="absolute -left-35 flex flex-col justify-center items-center text-center pl-12 pr-[61px] pt-[104px] pb-[92px] bg-[url('/src/pages/Characters/assets/bg.svg')] bg-no-repeat max-w-[520px] w-full">
               <p className="text-[32px] text-[#F5E2FF] max-w-[400px]">
                 В Хацкерах вам предстоит пройти несколько сложных сайтов
               </p>
             </div>
 
-            <div className="absolute -right-36 top-20 flex flex-col justify-center items-center text-center pl-[13px] pr-[9px] pt-[105px] pb-[91px] bg-[url('./src/pages/Characters/assets/bg.svg')] bg-no-repeat max-w-[520px] w-full">
+            <div className="absolute -right-36 top-20 flex flex-col justify-center items-center text-center pl-[13px] pr-[9px] pt-[105px] pb-[91px] bg-[url('/src/pages/Characters/assets/bg.svg')] bg-no-repeat max-w-[520px] w-full">
               <p className="text-[32px] text-[#F5E2FF] max-w-[487px]">
                 Вы будете играть в роли одного из отважных (или не очень)
                 офисных программ-героев{" "}
