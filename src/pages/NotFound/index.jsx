@@ -7,22 +7,22 @@ import scam_goodbye from "./assets/scam_goodbye.png";
 function NotFound() {
   return (
     <>
-      <div className="relative flex flex-col h-dvh max-h-dvh max-w-dvw">
+      <div className="relative flex flex-col h-dvh max-h-dvh max-w-dvw overflow-hidden">
         <img
           src={circle}
-          className="absolute -top-40 -left-40 w-[403px] h-[382px]"
+          className="absolute -top-40 -left-40 w-[403px] h-[382px] pointer-events-none select-none"
         />
         <img
           src={circle}
-          className="absolute -top-40 -right-40 w-[403px] h-[382px]"
+          className="absolute -top-40 -right-40 w-[403px] h-[382px] pointer-events-none select-none"
         />
         <img
           src={circle}
-          className="absolute bottom-30 -left-40 w-[403px] h-[382px]"
+          className="absolute bottom-30 -left-40 w-[403px] h-[382px] pointer-events-none select-none"
         />
         <img
           src={circle}
-          className="absolute -bottom-10 -right-40 w-[403px] h-[382px]"
+          className="absolute -bottom-10 -right-40 w-[403px] h-[382px] pointer-events-none select-none"
         />
 
         <Header />
