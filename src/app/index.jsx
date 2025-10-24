@@ -1,5 +1,6 @@
 import Characters from "@pages/Characters";
 import Home from "@pages/Home";
+import NotFound from "@pages/NotFound";
 import Rules from "@pages/Rules";
 import Shop from "@pages/Shop";
 import "@shared/assets/styles/index.css";
@@ -13,8 +14,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
+      { path: "*", element: <NotFound /> },
       { path: "/", element: <Home /> },
-      { path: "*", element: <Home /> }, // TODO: 404
       { path: "/characters", element: <Characters /> },
       { path: "/rules", element: <Rules /> },
       { path: "/shop", element: <Shop /> },
