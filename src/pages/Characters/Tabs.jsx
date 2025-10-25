@@ -1,3 +1,8 @@
+import card_memory_bg from "@pages/Characters/assets/card_memory_bg.png";
+import difficulties_bg from "@pages/Characters/assets/difficulties_bg.png";
+import office_bg from "@pages/Characters/assets/office_bg.png";
+import traps_bg from "@pages/Characters/assets/traps_bg.png";
+import viruses_bg from "@pages/Characters/assets/viruses_bg.png";
 import { useState } from "react";
 
 const data = [
@@ -218,11 +223,11 @@ const data = [
 ];
 
 const bgImages = [
-  "/src/pages/Characters/assets/office_bg.png", // 0 -> office
-  "/src/pages/Characters/assets/viruses_bg.png", // 1 -> viruses
-  "/src/pages/Characters/assets/difficulties_bg.png", // 2 -> difficulties
-  "/src/pages/Characters/assets/traps_bg.png", // 3 -> traps
-  "/src/pages/Characters/assets/card_memory_bg.png", // 4 -> card memory
+  office_bg, // 0 -> office
+  viruses_bg, // 1 -> viruses
+  difficulties_bg, // 2 -> difficulties
+  traps_bg, // 3 -> traps
+  card_memory_bg, // 4 -> card memory
 ];
 
 const bgImagePositions = [
