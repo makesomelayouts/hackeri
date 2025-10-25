@@ -223,107 +223,109 @@ const data = [
 ];
 
 const bgImages = [
-  office_bg, // 0 -> office
-  viruses_bg, // 1 -> viruses
-  difficulties_bg, // 2 -> difficulties
-  traps_bg, // 3 -> traps
-  card_memory_bg, // 4 -> card memory
+  office_bg,
+  viruses_bg,
+  difficulties_bg,
+  traps_bg,
+  card_memory_bg,
 ];
 
 const bgImagePositions = [
-  "absolute -left-12 -top-2", // office, the original good position
-  "absolute -left-16 -top-4", // example different position for viruses
-  "absolute -left-12 -top-2 -mt-2", // adjust as needed for difficulties
-  "absolute -left-3 -top-4", // adjust as needed for traps
-  "absolute left-8 -top-2 -mt-0", // adjust as needed for card memory
+  "absolute -left-12 -top-2",
+  "absolute -left-16 -top-4",
+  "absolute -left-12 -top-2 -mt-2",
+  "absolute -left-3 -top-4",
+  "absolute left-8 -top-2 -mt-0",
 ];
 
-const paddingClasses = [
-  "px-12", // for office (index 0)
-  "px-8", // for viruses (index 1)
-  "px-8", // for difficulties (index 2)
-  "px-14", // for traps (index 3)
-  "pl-10", // for card memory (index 4)
-];
+const paddingClasses = ["px-12", "px-8", "px-8", "px-14", "pl-10"];
 
-const mtClasses = [
-  "mt-14", // for office (index 0)
-  "mt-8 mr-38", // for viruses (index 1)
-  "mt-10 mr-16", // for difficulties (index 2)
-  "mt-10", // for traps (index 3)
-  "mt-6", // for card memory (index 4)
-];
+const mtClasses = ["mt-14", "mt-8 mr-38", "mt-10 mr-16", "mt-10", "mt-6"];
 
 export default function Tabs() {
   const [activeIndex, setActiveIndex] = useState(0); // For first level
   const [activeSubIndex, setActiveSubIndex] = useState(null); // For second level
 
   return (
-    <div className="relative max-w-[1120px] mx-auto px-5 text-white">
-      {/* Background image for active tab */}
-      <img
-        className={bgImagePositions[activeIndex]}
-        src={bgImages[activeIndex]}
-        alt={`${data[activeIndex].title} background`}
-      />
+    <>
+      <div className="relative max-w-[1120px] mx-auto px-5 text-white">
+        {/* Background image for active tab */}
+        <img
+          className={bgImagePositions[activeIndex]}
+          src={bgImages[activeIndex]}
+          alt={`${data[activeIndex].title} background`}
+        />
 
-      {/* First Level */}
-      <div className="flex z-1 whitespace-nowrap gap-y-2 text-[32px]">
-        {data.map((item, idx) =>
-          activeIndex === idx ? (
-            <p
-              key={idx}
-              className={`flex z-1 cursor-default opacity-100 ${paddingClasses[activeIndex]}`}
-            >
-              {item.title}
-            </p>
-          ) : (
-            <button
-              key={idx}
-              className="cursor-pointer opacity-75 transtion duration-1000 ease-in-out px-4"
-              onClick={() => {
-                setActiveIndex(idx);
-                setActiveSubIndex(null);
-              }}
-            >
-              {item.title}
-            </button>
-          ),
-        )}
-      </div>
-
-      {/* Second Level */}
-      {activeIndex !== null && (
-        <div
-          className={`flex relative z-1 flex-wrap whitespace-nowrap items-center justify-center gap-8 gap-y-2 text-[32px] ${mtClasses[activeIndex]}`}
-        >
-          {data[activeIndex].children.map((child, idx) =>
-            activeSubIndex === idx ? (
+        {/* First Level */}
+        <div className="flex z-1 whitespace-nowrap gap-y-2 text-[32px]">
+          {data.map((item, idx) =>
+            activeIndex === idx ? (
               <p
                 key={idx}
-                className="text-[#770AA1] border-b-[#770AA1] border-b-2 cursor-default"
+                className={`flex z-1 cursor-default opacity-100 ${paddingClasses[activeIndex]}`}
               >
-                {child.title}
+                {item.title}
               </p>
             ) : (
               <button
-                className="text-[#BC13FE] cursor-pointer hover:border-b-[#bc13fe] border-b-2 border-b-transparent duration-300"
                 key={idx}
-                onClick={() => setActiveSubIndex(idx)}
+                className="cursor-pointer opacity-75 transtion duration-1000 ease-in-out px-4"
+                onClick={() => {
+                  setActiveIndex(idx);
+                  setActiveSubIndex(null);
+                }}
               >
-                {child.title}
+                {item.title}
               </button>
             ),
           )}
         </div>
-      )}
 
-      {/* Third Level */}
-      {activeSubIndex !== null && (
-        <div className="p-4 mt-[105px] border-2 border-[#bc13fe] text-2xl">
-          <p>{data[activeIndex].children[activeSubIndex].content}</p>
-        </div>
-      )}
-    </div>
+        {/* Second Level */}
+        {activeIndex !== null && (
+          <div
+            className={`flex relative z-1 flex-wrap whitespace-nowrap items-center justify-center gap-8 gap-y-2 text-[32px] ${mtClasses[activeIndex]}`}
+          >
+            {data[activeIndex].children.map((child, idx) =>
+              activeSubIndex === idx ? (
+                <p
+                  key={idx}
+                  className="text-[#770AA1] border-b-[#770AA1] border-b-2 cursor-default"
+                >
+                  {child.title}
+                </p>
+              ) : (
+                <button
+                  className="text-[#BC13FE] cursor-pointer hover:border-b-[#bc13fe] border-b-2 border-b-transparent duration-300"
+                  key={idx}
+                  onClick={() => setActiveSubIndex(idx)}
+                >
+                  {child.title}
+                </button>
+              ),
+            )}
+          </div>
+        )}
+      </div>
+
+      <div className="flex flex-col justify-center items-center px-5 text-white pb-[103px] bg-[#010207]">
+        {/* Third Level */}
+        {activeSubIndex !== null && (
+          // {data[activeIndex][subActiveIndex].children.map((title, content) =>
+          <div className="flex gap-16 gap-y-4 p-4 mt-[105px] text-2xl">
+            <div className="flex justify-center items-center text-center w-[403px] h-[582px] bg-[#27124580] border-[7px] border-[#BC13FE]">
+              <img
+                src={data[activeIndex].children[activeSubIndex].img}
+                alt={data[activeIndex].children[activeSubIndex].title}
+                class="object-center object-cover capitalize"
+              />
+            </div>
+            <p className="max-w-[591px]">
+              {data[activeIndex].children[activeSubIndex].content}
+            </p>
+          </div>
+        )}
+      </div>
+    </>
   );
 }

@@ -14,15 +14,15 @@ function Characters() {
           <div className="relative -top-20">
             <img
               src={circle}
-              className="absolute -top-50 right-170 pointer-events-none select-none"
+              className="absolute -top-50 right-170 max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] pointer-events-none select-none"
             />
             <img
               src={circle}
-              className="absolute left-150 -top-90 pointer-events-none select-none"
+              class="absolute left-150 -top-90 max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] pointer-events-none select-none"
             />
             <img
               src={circle}
-              className="absolute -top-40 pointer-events-none select-none"
+              className="absolute -top-40 pointer-events-none select-none overflow-hidden"
             />
             <img
               src={arrow_top}
@@ -39,7 +39,7 @@ function Characters() {
               </p>
             </div>
 
-            <div className="absolute -right-36 top-20 flex flex-col justify-center items-center text-center pl-[13px] pr-[9px] pt-[105px] pb-[91px] bg-[url('/src/pages/Characters/assets/bg.svg')] bg-no-repeat max-w-[520px] w-full">
+            <div className="absolute -right-36 overflow-hidden top-20 flex flex-col justify-center items-center text-center pl-[13px] pr-[9px] pt-[105px] pb-[91px] bg-[url('/src/pages/Characters/assets/bg.svg')] bg-no-repeat max-w-[520px] w-full">
               <p className="text-[32px] text-[#F5E2FF] max-w-[487px]">
                 Вы будете играть в роли одного из отважных (или не очень)
                 офисных программ-героев{" "}
