@@ -3,6 +3,7 @@ import arrow_top from "@pages/Characters/assets/arrow_top.png";
 import circle from "@shared/assets/images/circle.png";
 import Footer from "@widgets/Footer";
 import Header from "@widgets/Header";
+import Tabs from "./Tabs";
 
 function Characters() {
   return (
@@ -53,7 +54,9 @@ function Characters() {
       </section>
 
       <section className="snap-start h-dvh flex flex-col">
-        <div className="grow">1</div>
+        <div className="grow">
+          <Tabs />
+        </div>
         <Footer />
       </section>
     </>
