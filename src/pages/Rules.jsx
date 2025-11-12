@@ -1,7 +1,7 @@
 import Footer from "@widgets/Footer";
 import Header from "@widgets/Header";
 
-function Rules() {
+function Rumes() {
   return (
     <>
       <section className="snap-start h-dvh flex flex-col">
@@ -13,4 +13,4 @@ function Rules() {
   );
 }
 
-export default Rules;
+export default Rumes;
