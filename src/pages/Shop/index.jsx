@@ -17,15 +17,13 @@ function Rules() {
                 <p className="leading-relaxed text-base mb-6">
                     Стильная модная молодежная игра для взрослых и подростков. Матовая черная коробка, набор стикеров, карты с уникальными персонажами и многое другое! Играйте, взламывайте сайты, узнавайте что-то новое и сражайтесь с самыми опасными вирусами и трудностями!
                 </p>
-                <button className="bg-[#b94cf6] hover:bg-[#a13be0] transition-colors duration-300 text-white px-8 py-3 rounded-full text-base">
-                    найти
-                </button>
+                <Button text="найти" link="/" />
             </div>
 
 
             <div className="flex-1 min-w-[300px] flex justify-center">
                 <img
-                src="/path/to/your/image.png"
+                src={SCAM_box}
                 alt="Хакеры коробка"
                 className="w-full max-w-[400px] rounded-xl"
                 />
@@ -41,5 +39,6 @@ function Rules() {
 }
 
 export default Rules;
+
 
 
