@@ -369,9 +369,7 @@ export default function Tabs() {
                     src={mediaSrc}
                     alt={activeItem.title}
                     className={`capitalize bg-transparent ${
-                      isVirusesTab
-                        ? "w-full h-full object-fill mix-blend-lighten"
-                        : ""
+                      isVirusesTab ? "w-full h-full object-fill" : ""
                     }`}
                   />
                 )
