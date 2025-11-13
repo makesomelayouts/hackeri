@@ -167,7 +167,7 @@ const data = [
         title: "отсутствие соединения",
         content:
           "Это невидимый, но всемогущий разделитель, чьё коварное присутствие не дает двум цифровым половинкам сойтись, оставляя их в безнадежном зависании. Он – молчаливый барьер, между которым мерцают искры нереализованного потенциала, высасывая последние крохи терпения и цифровой энергии, что убывает на индикаторах внизу, напоминая о тщетности попыток и о том, что порой весь цифровой мир может стать глух и нем, безжалостно обрывая все связи",
-        img: pictures[1],
+        img: pictures.noConnection,
       },
       {
         title: "страница не найдена",
@@ -246,8 +246,8 @@ const paddingClasses = ["px-12", "px-8", "px-8", "px-14", "pl-10"];
 const mtClasses = ["mt-14", "mt-8 mr-38", "mt-10 mr-16", "mt-10", "mt-6"];
 
 export default function Tabs() {
-  const [activeIndex, setActiveIndex] = useState(0); // For first level
-  const [activeSubIndex, setActiveSubIndex] = useState(0); // For second level
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeSubIndex, setActiveSubIndex] = useState(0);
 
   const activeItem = data?.[activeIndex]?.children?.[activeSubIndex];
   const mediaSrc = activeItem?.img || null;
@@ -318,35 +318,27 @@ export default function Tabs() {
       <div className="flex flex-col justify-center items-center px-5 text-white pb-[103px] bg-[#010207]">
         {/* Third Level */}
         {activeSubIndex !== null && (
-          // {data[activeIndex][subActiveIndex].children.map((title, content) =>
           <div className="flex gap-16 gap-y-4 p-4 mt-[105px] text-2xl">
             <div className="flex justify-center items-center text-center w-[403px] h-[582px] bg-[#27124580] border-[7px] border-[#BC13FE]">
-              {console.log(
-                "current img/vid src: " +
-                  data[activeIndex].children[activeSubIndex].img,
-              )}
-              {/* TODO: if picture then png, if mp4 then video tag*/}
-              {/* TODO: make import more simple like "pictures.word instead of pictures[0]"*/}
-              {console.log("isVideo: " + isVideo)}
-              {activeItem && mediaSrc ? (
+              {mediaSrc ? (
                 isVideo ? (
                   <video
                     src={mediaSrc}
-                    className="object-center object-cover capitalize"
+                    className="w-full h-full object-cover capitalize"
                     loop
                     autoPlay
                     muted
-                    alt={activeItem.title}
+                    playsInline
                   />
                 ) : (
                   <img
                     src={mediaSrc}
                     alt={activeItem.title}
-                    className="object-center object-cover capitalize"
+                    className="w-full h-full object-cover capitalize"
                   />
                 )
               ) : (
-                <div>No media available</div>
+                <div className="text-white">No media available</div>
               )}
             </div>
             <p className="max-w-[591px]">

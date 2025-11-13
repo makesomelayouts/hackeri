@@ -44,6 +44,10 @@ import noConnection from "@pages/Characters/assets/no-connection.png";
 // AdBlock
 // System Administrator
 
-const pictures = [word, noConnection];
+const pictures = {
+  word,
+  noConnection,
+  // Add other imports here as you uncomment them
+};
 
 export default pictures;
