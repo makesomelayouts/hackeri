@@ -4,6 +4,7 @@ import office_bg from "@pages/Characters/assets/office_bg.png";
 import traps_bg from "@pages/Characters/assets/traps_bg.png";
 import viruses_bg from "@pages/Characters/assets/viruses_bg.png";
 import { useState } from "react";
+import pictures from "./pictures";
 
 const data = [
   // 1
@@ -14,6 +15,7 @@ const data = [
         title: "ворд",
         content:
           "Ворд — молодой мужчина, который работает копирайтером в офисе. Он постоянно уставший и ощущает нехватку энергии, из-за чего ему тяжело справляться с рабочими задачами. Его жизнь наполнена рутиной и однообразием, он чувствует себя тем самым офисным планктоном, застрявшим в бесконечных дедлайнах и мелких поручениях. Финансовое положение оставляет желать лучшего, что добавляет ему стресса и усталости. Несмотря на это, он продолжает выполнять свою работу, хотя и мечтает о переменах и более вдохновляющем будущем",
+        img: pictures.word,
       },
       {
         title: "аксесс",
@@ -165,6 +167,7 @@ const data = [
         title: "отсутствие соединения",
         content:
           "Это невидимый, но всемогущий разделитель, чьё коварное присутствие не дает двум цифровым половинкам сойтись, оставляя их в безнадежном зависании. Он – молчаливый барьер, между которым мерцают искры нереализованного потенциала, высасывая последние крохи терпения и цифровой энергии, что убывает на индикаторах внизу, напоминая о тщетности попыток и о том, что порой весь цифровой мир может стать глух и нем, безжалостно обрывая все связи",
+        img: pictures[1],
       },
       {
         title: "страница не найдена",
@@ -244,7 +247,11 @@ const mtClasses = ["mt-14", "mt-8 mr-38", "mt-10 mr-16", "mt-10", "mt-6"];
 
 export default function Tabs() {
   const [activeIndex, setActiveIndex] = useState(0); // For first level
-  const [activeSubIndex, setActiveSubIndex] = useState(null); // For second level
+  const [activeSubIndex, setActiveSubIndex] = useState(0); // For second level
+
+  const activeItem = data?.[activeIndex]?.children?.[activeSubIndex];
+  const mediaSrc = activeItem?.img || null;
+  const isVideo = mediaSrc ? mediaSrc.endsWith(".mp4") : false;
 
   return (
     <>
@@ -314,11 +321,33 @@ export default function Tabs() {
           // {data[activeIndex][subActiveIndex].children.map((title, content) =>
           <div className="flex gap-16 gap-y-4 p-4 mt-[105px] text-2xl">
             <div className="flex justify-center items-center text-center w-[403px] h-[582px] bg-[#27124580] border-[7px] border-[#BC13FE]">
-              <img
-                src={data[activeIndex].children[activeSubIndex].img}
-                alt={data[activeIndex].children[activeSubIndex].title}
-                class="object-center object-cover capitalize"
-              />
+              {console.log(
+                "current img/vid src: " +
+                  data[activeIndex].children[activeSubIndex].img,
+              )}
+              {/* TODO: if picture then png, if mp4 then video tag*/}
+              {/* TODO: make import more simple like "pictures.word instead of pictures[0]"*/}
+              {console.log("isVideo: " + isVideo)}
+              {activeItem && mediaSrc ? (
+                isVideo ? (
+                  <video
+                    src={mediaSrc}
+                    className="object-center object-cover capitalize"
+                    loop
+                    autoPlay
+                    muted
+                    alt={activeItem.title}
+                  />
+                ) : (
+                  <img
+                    src={mediaSrc}
+                    alt={activeItem.title}
+                    className="object-center object-cover capitalize"
+                  />
+                )
+              ) : (
+                <div>No media available</div>
+              )}
             </div>
             <p className="max-w-[591px]">
               {data[activeIndex].children[activeSubIndex].content}
