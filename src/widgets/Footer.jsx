@@ -1,6 +1,5 @@
 function Footer() {
   const currentYear = new Date().getFullYear().toString();
-  console.log(currentYear);
 
   return (
     <footer className="py-[42px] px-4 bg-[#0D031B] z-10">
