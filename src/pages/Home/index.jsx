@@ -8,6 +8,13 @@ import circle from "./assets/welcome/circle.png";
 import ily_circle from "./assets/welcome/ily_circle.png";
 
 function Home() {
+  const scrollToNextSection = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <section className="snap-start h-dvh bg-[url(/src/pages/Home/assets/hero/hero_background.png)]">
@@ -17,7 +24,11 @@ function Home() {
             className="max-w-[1359.07px] max-h-[707.48px]"
             src={hero_intro}
           />
-          <img className="max-h-[71px]" src={arrow_down} />
+          <img
+            className="max-h-[71px] cursor-pointer hover:animate-pulse duration-4000"
+            src={arrow_down}
+            onClick={scrollToNextSection}
+          />
         </div>
       </section>
 
