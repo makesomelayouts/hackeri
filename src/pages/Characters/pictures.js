@@ -37,9 +37,11 @@ import infogypsy from "@pages/Characters/assets/infogypsy.mp4";
 // phishing link
 import phishingLink from "@pages/Characters/assets/phishing-link.mp4";
 // scam
+import scam from "@pages/Characters/assets/scam.mp4";
 // ddos
+import ddos from "@pages/Characters/assets/ddos.mp4";
 // advertising
-import advertising from "@pages/Characters/assets/advertising.mp4";
+// import advertising from "@pages/Characters/assets/advertising.mp4";
 // account hacked
 // import accountHacked from "@pages/Characters/assets/account-hacked.mp4";
 // mom burned out
@@ -47,7 +49,7 @@ import momBurnedOut from "@pages/Characters/assets/mom-burned-out.mp4";
 // doxing
 import doxing from "@pages/Characters/assets/doxing.mp4";
 // blue screen
-import blueScreen from "@pages/Characters/assets/blue-screen.mp4";
+// import blueScreen from "@pages/Characters/assets/blue-screen.mp4";
 // spamming
 import spamming from "@pages/Characters/assets/spamming.mp4";
 
@@ -97,13 +99,13 @@ const pictures = {
   // difficulties
   infogypsy,
   phishingLink,
-  // scam,
-  // ddos,
-  advertising,
+  scam,
+  ddos,
+  // advertising,
   // accountHacked,
   momBurnedOut,
   doxing,
-  blueScreen,
+  // blueScreen,
   spamming,
 
   // traps

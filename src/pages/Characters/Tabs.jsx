@@ -135,13 +135,13 @@ const data = [
         title: "скам",
         content:
           "Это обходительный, но скользкий манипулятор, чей голос обещает золотые горы и легкий путь к успеху, он искусно строит воздушные замки, заманивая жертву в паутину несбыточных мечтаний, предлагая сделки, слишком хорошие, чтобы быть правдой. Он играет на жадности, страхе или отчаянии, создавая иллюзию доверия и неотложности, но когда его обещания развеиваются как дым, а деньги или надежды жертвы переходят в его карман, он безжалостно исчезает в тенях, оставляя после себя лишь горечь обмана и опустошение",
-        // img: pictures.scam,
+        img: pictures.scam,
       },
       {
         title: "дудос",
         content:
           "Это беспощадный цифровой хулиган, собирающий огромную толпу ботов, чтобы обрушить всю их мощь на одну-единственную цель, заваливая серверы бесполезным трафиком, словно стая саранчи, пожирающая все на своем пути. Он глушит голоса, прерывает связь, блокирует доступ к информации, превращая онлайн-сервис в безжизненную руину и демонстрируя свою разрушительную силу, парализуя деятельность, принося убытки и повергая пользователей в отчаяние от бессилия перед этой безжалостной цифровой атакой",
-        // img: pictures.ddos
+        img: pictures.ddos,
       },
       {
         title: "реклама",
@@ -292,9 +292,10 @@ export default function Tabs() {
       <div className="relative max-w-[1120px] mx-auto px-5 text-white">
         {/* Background image for active tab */}
         <img
-          className={bgImagePositions[activeIndex]}
+          className={
+            bgImagePositions[activeIndex] + " select-none pointer-events-none"
+          }
           src={bgImages[activeIndex]}
-          alt={`${data[activeIndex].title} background`}
         />
 
         {/* First Level */}
@@ -369,7 +370,7 @@ export default function Tabs() {
                     src={mediaSrc}
                     alt={activeItem.title}
                     className={`capitalize bg-transparent ${
-                      isVirusesTab ? "w-full h-full object-fill" : ""
+                      isVirusesTab ? "w-full h-full object-fill" : "px-16"
                     }`}
                   />
                 )
