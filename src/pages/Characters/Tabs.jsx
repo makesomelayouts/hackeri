@@ -358,7 +358,7 @@ export default function Tabs() {
                 isVideo ? (
                   <video
                     src={mediaSrc}
-                    className="w-full h-full object-contain capitalize bg-transparent"
+                    className="w-full h-full object-fill capitalize bg-transparent"
                     loop
                     autoPlay
                     muted
@@ -368,13 +368,15 @@ export default function Tabs() {
                   <img
                     src={mediaSrc}
                     alt={activeItem.title}
-                    className={`w-full h-full object-bottom capitalize bg-transparent ${
-                      isVirusesTab ? "mix-blend-lighten" : ""
+                    className={`capitalize bg-transparent ${
+                      isVirusesTab
+                        ? "w-full h-full object-fill mix-blend-lighten"
+                        : ""
                     }`}
                   />
                 )
               ) : (
-                <div className="text-white">No media available</div>
+                <div className="text-white">Изображение отсутствует</div>
               )}
             </div>
             <p className="max-w-[591px]">
