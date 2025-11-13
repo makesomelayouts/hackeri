@@ -2,7 +2,7 @@ import Characters from "@pages/Characters";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
 import Rules from "@pages/Rules";
-import Shop from "@pages/Shop";
+import Shop from "@pages/Shop/index.jsx";
 import "@shared/assets/styles/index.css";
 import Layout from "@shared/ui/layout/Layout";
 import { createRoot } from "react-dom/client";
