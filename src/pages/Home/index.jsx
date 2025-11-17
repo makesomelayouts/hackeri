@@ -49,7 +49,7 @@ function Home() {
             <video
               src={man}
               alt="Man"
-              className="max-[332px]:bottom-16 absolute bottom-22 right-0 max-md:right-8 max-md:w-40 md:w-80 xl:w-full xl:h-full pointer-events-none select-none mix-blend-color-dodge"
+              className="max-[332px]:bottom-0 absolute bottom-22 right-0 max-md:right-8 max-md:w-40 md:w-80 xl:w-full xl:h-full pointer-events-none select-none mix-blend-color-dodge"
               loop
               autoPlay
               muted
