@@ -23,15 +23,15 @@ function Footer() {
             @qwkenk
           </a>
           ,&ensp;
-          <a href="https://t.me/@lizergin_xtra" target="_blank">
+          <a href="https://t.me/lizergin_xtra" target="_blank">
             @lizergin_xtra
           </a>
           ,&ensp;
-          <a href="https://t.me/@witchblades_draw" target="_blank">
+          <a href="https://t.me/witchblades_draw" target="_blank">
             @witchblades_draw
           </a>
           ,&ensp;
-          <a href="https://t.me/@makesomelayouts" target="_blank">
+          <a href="https://t.me/makesomelayouts" target="_blank">
             @makesomelayouts
           </a>
           )
