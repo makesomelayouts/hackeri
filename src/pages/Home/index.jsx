@@ -48,7 +48,7 @@ function Home() {
           <video
             src={man}
             alt="Man"
-            className="absolute lg:-bottom-8 xl:bottom-0 right-28 w-[60%] pointer-events-none select-none mix-blend-color-dodge"
+            className="absolute lg:bottom-0 right-28 lg:w-[56%] xl:w-[60%] pointer-events-none select-none mix-blend-color-dodge"
             loop
             autoPlay
             muted
@@ -61,7 +61,7 @@ function Home() {
             <img
               src={ily_circle}
               alt="Purple circle"
-              className="object-cover w-[400px] h-[400px] pointer-events-none select-none"
+              className="object-cover w-[400px] h-[400px] md:h-[700px] pointer-events-none select-none"
             />
             <video
               src={man}
@@ -74,7 +74,7 @@ function Home() {
             />
           </div>
 
-          <p className="text-[#f5e2ff] max-sm:text-[12px] sm:text-sm lg:text-xl xl:text-2xl 2xl:text-[32px] mb-8 mt-[35px] md:max-w-[600px] lg:max-w-[874px]">
+          <p className="text-[#f5e2ff] max-sm:text-[12px] sm:text-sm lg:text-xl xl:text-2xl 2xl:text-[32px] mb-8 mt-[35px] md:max-w-[600px] xl:max-w-[874px]">
             Добро пожаловать в мир «Хацкеров» - настольной игры, где вы
             примерите на себя роль элитного киберпреступника, стремящегося к
             вершинам цифровой иерархии! Пробирайтесь сквозь слои защиты,
