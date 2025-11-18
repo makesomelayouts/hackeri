@@ -21,7 +21,7 @@ function Header() {
         <img
           src={logo}
           alt="Лого"
-          className="md:w-[40px] lg:w-[66px] w-7 h-7 mx-5"
+          className="w-[30px] lg:w-[40px] xl:w-[58px] max-md:w-7 max-md:h-7 mx-5"
         />
         <Link to="/rules">Правила</Link>
         <Link to="/shop">Магазин</Link>
