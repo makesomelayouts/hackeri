@@ -1,9 +1,11 @@
 // office
 import word from "@pages/Characters/assets/word.mp4";
 // access
+import access from "@pages/Characters/assets/access.mp4";
 // paint
 import paint from "@pages/Characters/assets/paint.mp4";
 // pptx
+import pptx from "@pages/Characters/assets/powerpoint.mp4";
 // excel
 import excel from "@pages/Characters/assets/excel.mp4";
 
@@ -41,15 +43,15 @@ import scam from "@pages/Characters/assets/scam.mp4";
 // ddos
 import ddos from "@pages/Characters/assets/ddos.mp4";
 // advertising
-// import advertising from "@pages/Characters/assets/advertising.mp4";
+import advertising from "@pages/Characters/assets/advertising.mp4";
 // account hacked
-// import accountHacked from "@pages/Characters/assets/account-hacked.mp4";
+import accountHacked from "@pages/Characters/assets/account-hacked.mp4";
 // mom burned out
 import momBurnedOut from "@pages/Characters/assets/mom-burned-out.mp4";
 // doxing
 import doxing from "@pages/Characters/assets/doxing.mp4";
 // blue screen
-// import blueScreen from "@pages/Characters/assets/blue-screen.mp4";
+import blueScreen from "@pages/Characters/assets/blue-screen.mp4";
 // spamming
 import spamming from "@pages/Characters/assets/spamming.mp4";
 
@@ -77,10 +79,11 @@ import adblock from "@pages/Characters/assets/adblock.png";
 import systemAdministrator from "@pages/Characters/assets/system-administrator.png";
 
 const pictures = {
+  // office
   word,
-  // access,
+  access,
   paint,
-  // pptx,
+  pptx,
   excel,
 
   // viruses
@@ -101,11 +104,11 @@ const pictures = {
   phishingLink,
   scam,
   ddos,
-  // advertising,
-  // accountHacked,
+  advertising,
+  accountHacked,
   momBurnedOut,
   doxing,
-  // blueScreen,
+  blueScreen,
   spamming,
 
   // traps
