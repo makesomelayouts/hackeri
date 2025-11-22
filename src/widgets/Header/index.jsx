@@ -48,7 +48,7 @@ function Header() {
             : "opacity-0 pointer-events-none"
         }`}
         style={{
-          background: "linear-gradient(135deg, #BC13FE 0%, #18072E 100%)",
+          background: "linear-gradient(135deg, #BC13FEfa 0%, #18072Efa 100%)",
           boxShadow: "inset 0 0 50px rgba(0, 0, 0, 0.3)",
         }}
       >
