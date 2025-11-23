@@ -19,7 +19,7 @@ function Footer() {
         {/* links */}
         <p className="py-2 text-[#f5e2ff] max-sm:text-[12px] sm:text-sm lg:text-xl xl:text-2xl 2xl:text-[32px]">
           tg: (
-          <div className="md:inline max-md:leading-6">
+          <span className="max-md:block md:inline max-md:leading-6">
             <a
               className="hover:text-[#BC13FE] duration-300 ease-in"
               href="https://t.me/qwkenk"
@@ -54,7 +54,7 @@ function Footer() {
             >
               @lizergin_xtra
             </a>
-          </div>
+          </span>
           )
         </p>
       </div>
