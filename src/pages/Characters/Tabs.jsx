@@ -1,8 +1,3 @@
-import card_memory_bg from "@pages/Characters/assets/card_memory_bg.png";
-import difficulties_bg from "@pages/Characters/assets/difficulties_bg.png";
-import office_bg from "@pages/Characters/assets/office_bg.png";
-import traps_bg from "@pages/Characters/assets/traps_bg.png";
-import viruses_bg from "@pages/Characters/assets/viruses_bg.png";
 import { useState } from "react";
 import pictures from "./pictures";
 
@@ -259,26 +254,6 @@ const data = [
   },
 ];
 
-const bgImages = [
-  office_bg,
-  viruses_bg,
-  difficulties_bg,
-  traps_bg,
-  card_memory_bg,
-];
-
-const bgImagePositions = [
-  "absolute -left-12 -top-2",
-  "absolute -left-16 -top-4",
-  "absolute -left-12 -top-2 -mt-2",
-  "absolute -left-3 -top-4",
-  "absolute left-8 -top-2 -mt-0",
-];
-
-const paddingClasses = ["px-12", "px-8", "px-8", "px-14", "pl-10"];
-
-const mtClasses = ["mt-14", "mt-8 mr-38", "mt-10 mr-16", "mt-10", "mt-6"];
-
 export default function Tabs() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeSubIndex, setActiveSubIndex] = useState(0);
@@ -292,28 +267,20 @@ export default function Tabs() {
   return (
     <>
       <div className="relative max-w-[1120px] mx-auto px-5 text-white">
-        {/* Background image for active tab */}
-        <img
-          className={
-            bgImagePositions[activeIndex] + " select-none pointer-events-none"
-          }
-          src={bgImages[activeIndex]}
-        />
-
         {/* First Level */}
-        <div className="flex z-1 whitespace-nowrap gap-y-2 text-[32px]">
+        <div className="flex max-md:flex-wrap items-center justify-center whitespace-nowrap gap-4 gap-y-2 font-regular max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px]">
           {data.map((item, idx) =>
             activeIndex === idx ? (
               <p
                 key={idx}
-                className={`flex z-1 cursor-default opacity-100 ${paddingClasses[activeIndex]}`}
+                className={`flex z-10 cursor-default opacity-100 p-4 bg-[#4F006E] rounded-[9999px]`}
               >
                 {item.title}
               </p>
             ) : (
               <button
                 key={idx}
-                className="cursor-pointer opacity-75 transtion duration-1000 ease-in-out px-4"
+                className="z-10 cursor-pointer opacity-75 px-4 hover:text-[#bc13fe] hover:opacity-100 duration-300 ease-in"
                 onClick={() => {
                   setActiveIndex(idx);
                   setActiveSubIndex(null);
@@ -328,19 +295,19 @@ export default function Tabs() {
         {/* Second Level */}
         {activeIndex !== null && (
           <div
-            className={`flex relative z-1 flex-wrap whitespace-nowrap items-center justify-center gap-8 gap-y-2 text-[32px] ${mtClasses[activeIndex]}`}
+            className={`flex relative z-10 flex-wrap whitespace-nowrap items-center justify-center gap-8 gap-y-2 max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] lg:mt-14 md:mt-10 mt-4`}
           >
             {data[activeIndex].children.map((child, idx) =>
               activeSubIndex === idx ? (
                 <p
                   key={idx}
-                  className="text-[#770AA1] border-b-[#770AA1] border-b-2 cursor-default"
+                  className="text-[#bc13fe] max-lg:brightness-150 border-b-[#bc13fe] border-b-2 cursor-default px-4 py-2 bg-[#18072EB2] rounded-lg duration-300"
                 >
                   {child.title}
                 </p>
               ) : (
                 <button
-                  className="text-[#BC13FE] cursor-pointer hover:border-b-[#bc13fe] border-b-2 border-b-transparent duration-300"
+                  className="hover:text-[#BC13FE]/60 text-[#bc13fe] cursor-pointer hover:border-b-[#bc13fe]/60 border-b-2 border-b-transparent duration-300 px-4 py-2 hover:bg-[#bc13fe]/5 rounded-lg"
                   key={idx}
                   onClick={() => setActiveSubIndex(idx)}
                 >
@@ -352,16 +319,16 @@ export default function Tabs() {
         )}
       </div>
 
-      <div className="flex flex-col justify-center items-center px-5 text-white pb-[103px] bg-[#010207]">
+      <div className="flex flex-col justify-center items-center px-5 text-white max-md:pb-8 md:pb-[200px] bg-[#010207]">
         {/* Third Level */}
         {activeSubIndex !== null && (
-          <div className="flex gap-16 gap-y-4 p-4 mt-[105px] text-2xl">
-            <div className="flex justify-center items-center text-center w-[403px] h-[582px] border-[7px] border-[#BC13FE] bg-transparent">
+          <div className="flex max-lg:flex-col max-lg:items-center max-lg:justify-center gap-16 gap-y-4 sm:p-4 max-lg:mt-4 lg:mt-[60px] max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] max-sm:w-full">
+            <div className="sm:max-w-[300px] md:max-w-[400px] h-full flex justify-center items-center text-center border-[7px] border-[#BC13FE] bg-transparent">
               {mediaSrc ? (
                 isVideo ? (
                   <video
                     src={mediaSrc}
-                    className="w-full h-full object-fill capitalize bg-transparent"
+                    className="max-sm:max-h-[200px] max-md:max-h-[240px] max-lg:max-h-[300px] capitalize bg-transparent"
                     loop
                     autoPlay
                     muted
@@ -371,16 +338,18 @@ export default function Tabs() {
                   <img
                     src={mediaSrc}
                     alt={activeItem.title}
-                    className={`capitalize bg-transparent ${
-                      isVirusesTab ? "w-full h-full object-fill" : "px-16"
+                    className={`w-full h-full object-fill max-sm:max-h-[200px] max-md:max-h-[240px] max-lg:max-h-[300px] max-h-[400px] capitalize bg-transparent ${
+                      isVirusesTab ? "" : "px-16 py-8"
                     }`}
                   />
                 )
               ) : (
-                <div className="text-white">Изображение отсутствует</div>
+                <div className="text-white max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px]">
+                  Изображение отсутствует
+                </div>
               )}
             </div>
-            <p className="max-w-[591px]">
+            <p className="md:px-12 max-w-[591px] max-sm:mt-4 max-md:mt-4">
               {data[activeIndex].children[activeSubIndex].content}
             </p>
           </div>

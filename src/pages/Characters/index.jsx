@@ -1,65 +1,41 @@
-import arrow_down from "@pages/Characters/assets/arrow_down.png";
-import arrow_top from "@pages/Characters/assets/arrow_top.png";
-import circle from "@shared/assets/images/circle.png";
 import Footer from "@widgets/Footer";
 import Header from "@widgets/Header";
 import Tabs from "./Tabs";
+import circle from "./assets/circle.png";
+import intro from "./assets/intro.png";
 
 function Characters() {
   return (
-    <>
-      <section className="snap-start max-h-dvh h-dvh flex flex-col">
+    <div className="flex flex-col min-h-dvh">
+      <section className="relative flex flex-col max-md:mb-10 overflow-hidden">
         <Header />
-        <div className="flex flex-col justify-center items-center grow">
-          <div className="relative -top-20">
-            <img
-              src={circle}
-              className="absolute -top-50 right-170 max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] pointer-events-none select-none"
-            />
-            <img
-              src={circle}
-              class="absolute left-150 -top-90 max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] pointer-events-none select-none"
-            />
-            <img
-              src={circle}
-              className="absolute -top-40 pointer-events-none select-none overflow-hidden"
-            />
-            <img
-              src={arrow_top}
-              className="absolute -top-30 left-60 pointer-events-none select-none"
-            />
-            <img
-              src={arrow_down}
-              className="absolute top-60 left-140 max-w-[285px] pointer-events-none select-none"
-            />
 
-            <div className="absolute -left-35 flex flex-col justify-center items-center text-center pl-12 pr-[61px] pt-[104px] pb-[92px] bg-[url('/src/pages/Characters/assets/bg.svg')] bg-no-repeat max-w-[520px] w-full">
-              <p className="text-[32px] text-[#F5E2FF] max-w-[400px]">
-                В Хацкерах вам предстоит пройти несколько сложных сайтов
-              </p>
-            </div>
+        <img
+          src={intro}
+          className="max-sm:p-4 p-10 pb-20 max-md:w-[90%] md:p-16 md:pb-32 min-w-[320px] mx-auto pointer-events-none select-none"
+        />
 
-            <div className="absolute -right-36 overflow-hidden top-20 flex flex-col justify-center items-center text-center pl-[13px] pr-[9px] pt-[105px] pb-[91px] bg-[url('/src/pages/Characters/assets/bg.svg')] bg-no-repeat max-w-[520px] w-full">
-              <p className="text-[32px] text-[#F5E2FF] max-w-[487px]">
-                Вы будете играть в роли одного из отважных (или не очень)
-                офисных программ-героев{" "}
-              </p>
-            </div>
-
-            <h1 className="uppercase text-[#50006F] font-bowler text-[190px]">
-              Хацкеры
-            </h1>
-          </div>
-        </div>
+        <img
+          src={circle}
+          className="absolute -left-[10%] bottom-[2%] w-[50%] pointer-events-none select-none"
+        />
+        <img
+          src={circle}
+          className="absolute left-[24%] bottom-[2%] w-[50%] pointer-events-none select-none"
+        />
+        <img
+          src={circle}
+          className="absolute -right-[8%] max-[451px]:top-[12%] max-xl:top-[4%] xl:-top-[8%] xl:-right-[2%] w-[50%] pointer-events-none select-none"
+        />
       </section>
 
-      <section className="snap-start h-dvh flex flex-col">
+      <section className="flex flex-col grow">
         <div className="grow">
           <Tabs />
         </div>
         <Footer />
       </section>
-    </>
+    </div>
   );
 }
 
