@@ -362,16 +362,16 @@ export default function Tabs() {
       </div>
 
       <div className="flex flex-col justify-center items-center px-5 text-white max-md:pb-8 md:pb-[200px] bg-[#010207]">
-        {/* Third Level - добавляем ref к видео */}
+        {/* Third Level */}
         {activeSubIndex !== null && (
           <div className="flex max-lg:flex-col max-lg:items-center max-lg:justify-center gap-16 gap-y-4 sm:p-4 max-lg:mt-6 lg:mt-[40px] max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] max-sm:w-full">
-            <div className="sm:max-w-[300px] md:max-w-[400px] h-full flex justify-center items-center text-center border-[7px] border-[#BC13FE] bg-transparent">
+            <div className="sm:max-w-[300px] md:max-w-[400px] h-full flex justify-center items-center text-center bg-transparent">
               {mediaSrc ? (
                 isVideo ? (
                   <video
                     ref={videoRef}
                     src={mediaSrc}
-                    className="max-sm:max-h-[200px] max-md:max-h-[240px] max-lg:max-h-[300px] capitalize bg-transparent"
+                    className="border-[7px] border-[#BC13FE] max-sm:max-h-[200px] max-md:max-h-[240px] max-lg:max-h-[300px] capitalize bg-transparent"
                     loop
                     autoPlay
                     muted
@@ -382,7 +382,7 @@ export default function Tabs() {
                   <img
                     src={mediaSrc}
                     alt={activeItem.title}
-                    className={`w-full h-full object-fill max-sm:max-h-[200px] max-md:max-h-[240px] max-lg:max-h-[300px] max-h-[400px] capitalize bg-transparent ${
+                    className={`border-[7px] border-[#BC13FE] w-full h-full object-fill max-sm:max-h-[200px] max-md:max-h-[240px] max-lg:max-h-[300px] max-h-[400px] capitalize bg-transparent ${
                       isVirusesTab ? "" : "px-16 py-8"
                     }`}
                   />
