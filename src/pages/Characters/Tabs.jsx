@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import pictures from "./pictures";
 
 const data = [
@@ -257,17 +257,58 @@ const data = [
 export default function Tabs() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeSubIndex, setActiveSubIndex] = useState(0);
+  const [preloadedVideos, setPreloadedVideos] = useState(new Set());
+  const videoRef = useRef(null);
 
   const activeItem = data?.[activeIndex]?.children?.[activeSubIndex];
   const mediaSrc = activeItem?.img || null;
   const isVideo = mediaSrc ? mediaSrc.endsWith(".mp4") : false;
+
+  // Функция для предзагрузки видео
+  const preloadVideo = (src) => {
+    if (!src || !src.endsWith(".mp4") || preloadedVideos.has(src)) return;
+
+    const video = document.createElement("video");
+    video.src = src;
+    video.preload = "auto";
+    video.load();
+
+    setPreloadedVideos((prev) => new Set([...prev, src]));
+  };
+
+  // Предзагрузка видео при наведении на элементы второго уровня
+  const handleSubItemHover = (child) => {
+    if (child.img && child.img.endsWith(".mp4")) {
+      preloadVideo(child.img);
+    }
+  };
+
+  // Автозагрузка видео когда оно становится видимым
+  useEffect(() => {
+    if (videoRef.current && isVideo && mediaSrc) {
+      const video = videoRef.current;
+      video.load();
+
+      // Попробуем запустить воспроизведение
+      const playVideo = async () => {
+        try {
+          video.muted = true;
+          await video.play();
+        } catch (error) {
+          console.log("Auto-play prevented:", error);
+        }
+      };
+
+      playVideo();
+    }
+  }, [mediaSrc, isVideo]);
 
   const isVirusesTab = activeIndex === 1;
 
   return (
     <>
       <div className="relative max-w-[1120px] mx-auto px-5 text-white">
-        {/* First Level */}
+        {/* First Level - без изменений */}
         <div className="flex max-md:flex-wrap items-center justify-center whitespace-nowrap gap-4 gap-y-2 font-regular max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px]">
           {data.map((item, idx) =>
             activeIndex === idx ? (
@@ -283,7 +324,7 @@ export default function Tabs() {
                 className="z-10 cursor-pointer opacity-75 px-4 hover:text-[#bc13fe] hover:opacity-100 duration-300 ease-in"
                 onClick={() => {
                   setActiveIndex(idx);
-                  setActiveSubIndex(null);
+                  setActiveSubIndex(0);
                 }}
               >
                 {item.title}
@@ -310,6 +351,7 @@ export default function Tabs() {
                   className="hover:text-[#BC13FE]/60 text-[#bc13fe] cursor-pointer hover:border-b-[#bc13fe]/60 border-b-2 border-b-transparent duration-300 px-4 py-2 hover:bg-[#bc13fe]/5 rounded-lg"
                   key={idx}
                   onClick={() => setActiveSubIndex(idx)}
+                  onMouseEnter={() => handleSubItemHover(child)}
                 >
                   {child.title}
                 </button>
@@ -320,19 +362,21 @@ export default function Tabs() {
       </div>
 
       <div className="flex flex-col justify-center items-center px-5 text-white max-md:pb-8 md:pb-[200px] bg-[#010207]">
-        {/* Third Level */}
+        {/* Third Level - добавляем ref к видео */}
         {activeSubIndex !== null && (
           <div className="flex max-lg:flex-col max-lg:items-center max-lg:justify-center gap-16 gap-y-4 sm:p-4 max-lg:mt-6 lg:mt-[40px] max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] max-sm:w-full">
             <div className="sm:max-w-[300px] md:max-w-[400px] h-full flex justify-center items-center text-center border-[7px] border-[#BC13FE] bg-transparent">
               {mediaSrc ? (
                 isVideo ? (
                   <video
+                    ref={videoRef}
                     src={mediaSrc}
                     className="max-sm:max-h-[200px] max-md:max-h-[240px] max-lg:max-h-[300px] capitalize bg-transparent"
                     loop
                     autoPlay
                     muted
                     playsInline
+                    preload="auto"
                   />
                 ) : (
                   <img
