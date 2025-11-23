@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import pictures from "./pictures";
 
@@ -308,16 +309,33 @@ export default function Tabs() {
   return (
     <>
       <div className="relative max-w-[1120px] mx-auto px-5 text-white">
-        {/* First Level - без изменений */}
-        <div className="flex max-md:flex-wrap items-center justify-center whitespace-nowrap gap-4 gap-y-2 font-regular max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px]">
+        {/* First Level */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex max-md:flex-wrap items-center justify-center whitespace-nowrap gap-4 gap-y-2 font-regular max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px]"
+        >
           {data.map((item, idx) =>
             activeIndex === idx ? (
-              <p
+              <motion.p
                 key={idx}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{
+                  duration: 1.0,
+                  ease: [0.68, -0.55, 0.265, 1.55], // bouncy cozy easing
+                  scale: {
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 50,
+                  },
+                }}
                 className={`flex z-10 cursor-default opacity-100 p-4 bg-[#4F006E] rounded-[9999px]`}
               >
                 {item.title}
-              </p>
+              </motion.p>
             ) : (
               <button
                 key={idx}
@@ -331,21 +349,35 @@ export default function Tabs() {
               </button>
             ),
           )}
-        </div>
+        </motion.div>
 
         {/* Second Level */}
         {activeIndex !== null && (
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
+            viewport={{ once: true, margin: "-50px" }}
             className={`flex relative z-10 flex-wrap whitespace-nowrap items-center justify-center gap-8 gap-y-2 max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] lg:mt-14 md:mt-10 mt-6`}
           >
             {data[activeIndex].children.map((child, idx) =>
               activeSubIndex === idx ? (
-                <p
+                <motion.p
                   key={idx}
+                  initial={{ scale: 0.9, opacity: 0, y: 10 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 1.8,
+                    ease: "easeOut",
+                    scale: {
+                      duration: 2,
+                      ease: "backOut",
+                    },
+                  }}
                   className="text-[#bc13fe] max-lg:brightness-150 border-b-[#bc13fe] border-b-2 cursor-default px-4 py-2 bg-[#18072EB2] rounded-lg duration-300"
                 >
                   {child.title}
-                </p>
+                </motion.p>
               ) : (
                 <button
                   className="hover:text-[#BC13FE]/60 text-[#bc13fe] cursor-pointer hover:border-b-[#bc13fe]/60 border-b-2 border-b-transparent duration-300 px-4 py-2 hover:bg-[#bc13fe]/5 rounded-lg"
@@ -357,18 +389,41 @@ export default function Tabs() {
                 </button>
               ),
             )}
-          </div>
+          </motion.div>
         )}
       </div>
 
       <div className="flex flex-col justify-center items-center px-5 text-white max-md:pb-8 md:pb-[200px] bg-[#010207]">
         {/* Third Level */}
         {activeSubIndex !== null && (
-          <div className="flex max-lg:flex-col max-lg:items-center max-lg:justify-center gap-16 gap-y-4 sm:p-4 max-lg:mt-6 lg:mt-[40px] max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] max-sm:w-full">
-            <div className="sm:max-w-[300px] md:max-w-[400px] h-full flex justify-center items-center text-center bg-transparent">
+          <motion.div
+            key={activeSubIndex}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex max-lg:flex-col max-lg:items-center max-lg:justify-center gap-16 gap-y-4 sm:p-4 max-lg:mt-6 lg:mt-[40px] max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] max-sm:w-full"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -50, rotate: -3 }}
+              animate={{ opacity: 1, x: 0, rotate: 0 }}
+              transition={{
+                duration: 1.8,
+                ease: "easeOut",
+                delay: 0.3,
+              }}
+              className="sm:max-w-[300px] md:max-w-[400px] h-full flex justify-center items-center text-center bg-transparent"
+            >
               {mediaSrc ? (
                 isVideo ? (
-                  <video
+                  <motion.video
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 2,
+                      ease: "easeOut",
+                      delay: 0.4,
+                    }}
                     ref={videoRef}
                     src={mediaSrc}
                     className="border-[7px] border-[#BC13FE] max-sm:max-h-[200px] max-md:max-h-[240px] max-lg:max-h-[300px] capitalize bg-transparent"
@@ -379,7 +434,14 @@ export default function Tabs() {
                     preload="auto"
                   />
                 ) : (
-                  <img
+                  <motion.img
+                    initial={{ opacity: 0, scale: 0.85, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{
+                      duration: 1.5,
+                      ease: "backOut",
+                      delay: 0.4,
+                    }}
                     src={mediaSrc}
                     alt={activeItem.title}
                     className={`border-[7px] border-[#BC13FE] w-full h-full object-fill max-sm:max-h-[200px] max-md:max-h-[240px] max-lg:max-h-[300px] max-h-[400px] capitalize bg-transparent ${
@@ -388,15 +450,30 @@ export default function Tabs() {
                   />
                 )
               ) : (
-                <div className="text-white max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px]">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, delay: 0.8 }}
+                  className="text-white max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px]"
+                >
                   Изображение отсутствует
-                </div>
+                </motion.div>
               )}
-            </div>
-            <p className="md:px-12 max-w-[591px] max-sm:mt-4 max-md:mt-4">
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 1.6,
+                ease: "easeOut",
+                delay: 0.7,
+              }}
+              className="md:px-12 max-w-[591px] max-sm:mt-4 max-md:mt-4"
+            >
               {data[activeIndex].children[activeSubIndex].content}
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         )}
       </div>
     </>

@@ -3,11 +3,24 @@ import SCAM_hello_subs from "@pages/Shop/assets/SCAM_hello_subs.png";
 import Button from "@shared/ui/button";
 import Footer from "@widgets/Footer";
 import Header from "@widgets/Header";
+import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 
 function Shop() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <>
-      <section className="snap-start flex flex-col">
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isMounted ? 1 : 0 }}
+        transition={{ duration: 2 }}
+        className="snap-start flex flex-col"
+      >
         <Header />
         <section></section>
         <div className="flex flex-col justify-center items-center">
@@ -34,7 +47,7 @@ function Shop() {
         </section>
 
         <Footer />
-      </section>
+      </motion.section>
     </>
   );
 }

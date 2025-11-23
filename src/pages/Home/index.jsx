@@ -1,6 +1,7 @@
 import Button from "@shared/ui/button";
 import Footer from "@widgets/Footer";
 import Header from "@widgets/Header";
+import { motion } from "motion/react";
 import arrow_down from "./assets/hero/arrow_down.png";
 import hero_intro from "./assets/hero/hero_intro.png";
 import circle from "./assets/welcome/circle.png";
@@ -20,7 +21,11 @@ function Home() {
       <section className="max-h-dvh h-dvh md:pb-30 bg-[url(/src/pages/Home/assets/hero/hero_background.png)]">
         <Header />
 
-        <div className="h-full flex flex-col justify-center items-center pb-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 2 } }}
+          className="h-full flex flex-col justify-center items-center pb-4"
+        >
           <img
             className="xl:w-[70%] lg:w-[850px] md:w-[700px] sm:w-[500px] max-[646px]:w-[90%]"
             src={hero_intro}
@@ -30,22 +35,34 @@ function Home() {
             src={arrow_down}
             onClick={scrollToNextSection}
           />
-        </div>
+        </motion.div>
       </section>
 
-      <section className="overflow-hidden relative h-full max-[767px]:min-h-[600px] md:min-h-dvh flex flex-col bg-[#010207]">
-        <img
+      <motion.section className="overflow-hidden relative h-full max-[767px]:min-h-[600px] md:min-h-dvh flex flex-col bg-[#010207]">
+        <motion.img
+          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 2.5, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
           src={circle}
           className="absolute top-70 left-0 w-[1000px] pointer-events-none select-none"
         />
 
         <div className="max-lg:hidden absolute bottom-38 right-0 pointer-events-none select-none">
-          <img
+          <motion.img
+            initial={{ opacity: 0, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 2.8, ease: "easeOut", delay: 0.3 }}
+            viewport={{ once: true }}
             src={ily_circle}
             alt="Purple circle"
             className="object-cover w-[1000px] h-[1000px] pointer-events-none select-none"
           />
-          <video
+          <motion.video
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 3.2, ease: "easeOut", delay: 0.6 }}
+            viewport={{ once: true }}
             src={man}
             alt="Man"
             className="absolute lg:-bottom-28 right-28 lg:w-[50%] xl:w-[60%] pointer-events-none select-none mix-blend-color-dodge"
@@ -58,12 +75,20 @@ function Home() {
 
         <div className="px-4 relative max-w-[1140px] w-full mx-auto grow overflow-hidden">
           <div className="lg:hidden absolute max-md:-bottom-26 md:-bottom-44 right-0 pointer-events-none select-none">
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.7 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2.8, ease: "easeOut", delay: 0.3 }}
+              viewport={{ once: true }}
               src={ily_circle}
               alt="Purple circle"
               className="object-cover w-[400px] h-[400px] md:h-[700px] pointer-events-none select-none"
             />
-            <video
+            <motion.video
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 3, ease: "easeOut", delay: 0.7 }}
+              viewport={{ once: true }}
               src={man}
               alt="Man"
               className="max-[332px]:bottom-18 absolute bottom-22 right-0 max-md:right-8 max-md:w-40 md:w-80 pointer-events-none select-none mix-blend-color-dodge"
@@ -74,22 +99,35 @@ function Home() {
             />
           </div>
 
-          <p className="text-[#f5e2ff] max-sm:text-[12px] sm:text-sm lg:text-xl xl:text-2xl 2xl:text-[32px] mb-8 mt-[35px] md:max-w-[600px] xl:max-w-[874px]">
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2.2, ease: "easeOut", delay: 0.9 }}
+            viewport={{ once: true }}
+            className="text-[#f5e2ff] max-sm:text-[12px] sm:text-sm lg:text-xl xl:text-2xl 2xl:text-[32px] mb-8 mt-[35px] md:max-w-[600px] xl:max-w-[874px]"
+          >
             Добро пожаловать в мир «Хацкеров» - настольной игры, где вы
             примерите на себя роль элитного киберпреступника, стремящегося к
             вершинам цифровой иерархии! Пробирайтесь сквозь слои защиты,
             обходите конкурентов или кооперируйтесь с другими игроками,
             взламывайте сайты и собирайте крутые ништяки, чтобы стать самым
             богатым и влиятельным хакером в сети!
-          </p>
-          <div className="flex flex-wrap gap-[29px] pb-8 max-md:pb-52">
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2, ease: "easeOut", delay: 1.2 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap gap-[29px] pb-8 max-md:pb-52"
+          >
             <Button text="персонажи" link="characters" />
             <Button text="правила" link="rules" />
-          </div>
+          </motion.div>
         </div>
 
         <Footer />
-      </section>
+      </motion.section>
     </>
   );
 }
