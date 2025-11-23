@@ -28,11 +28,16 @@ import trap2 from "@pages/Rules/assets/trap2.png";
 import trap3 from "@pages/Rules/assets/trap3.png";
 import trap4 from "@pages/Rules/assets/trap4.png";
 import trap5 from "@pages/Rules/assets/trap5.png";
+import { motion } from "motion/react";
 
 function Rules() {
   return (
     <>
-      <section className="snap-start flex flex-col bg-[#0c0014] min-h-screen ">
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 2 } }}
+        className="snap-start flex flex-col bg-[#0c0014] min-h-screen"
+      >
         <Header />
 
         <section className=" text-white px-6 py-16 max-w-[1200px] mx-auto bg-[#0b0b14]">
@@ -106,14 +111,13 @@ function Rules() {
               </p>
             </div>
           </div>
-            <div className="flex-1 min-w-[250px] flex justify-center">
-              <img
-                src={row_sites}
-                alt="Ряд сайтов"
-                className="w-full max-w-[1100px] rounded-lg"
-              />
-            </div>
-
+          <div className="flex-1 min-w-[250px] flex justify-center">
+            <img
+              src={row_sites}
+              alt="Ряд сайтов"
+              className="w-full max-w-[1100px] rounded-lg"
+            />
+          </div>
         </section>
         <section className="bg-[#0b0b14] text-white px-6 py-16 max-w-[1200px] mx-auto">
           {/* ПОДГОТОВЬТЕ НИШТЯКИ */}
@@ -128,29 +132,31 @@ function Rules() {
               </p>
             </div>
           </div>
-                      <div className="flex-1 min-w-[250px] flex justify-center">
-              <img
-                src={nishtyak1}
-                alt="Карты ништяков"
-                className="w-full max-w-[220px] rounded-lg"
-              />
-              <img
-                src={nishtyak2}
-                alt="Карты ништяков"
-                className="w-full max-w-[220px] rounded-lg"
-              />
-              <img
-                src={nishtyak3}
-                alt="Карты ништяков"
-                className="w-full max-w-[220px] rounded-lg"
-              />
-              <img
-                src={nishtyak4}
-                alt="Карты ништяков"
-                className="w-full max-w-[220px] rounded-lg"
-              />
-            </div>
-<br /><br /><br />
+          <div className="flex-1 min-w-[250px] flex justify-center">
+            <img
+              src={nishtyak1}
+              alt="Карты ништяков"
+              className="w-full max-w-[220px] rounded-lg"
+            />
+            <img
+              src={nishtyak2}
+              alt="Карты ништяков"
+              className="w-full max-w-[220px] rounded-lg"
+            />
+            <img
+              src={nishtyak3}
+              alt="Карты ништяков"
+              className="w-full max-w-[220px] rounded-lg"
+            />
+            <img
+              src={nishtyak4}
+              alt="Карты ништяков"
+              className="w-full max-w-[220px] rounded-lg"
+            />
+          </div>
+          <br />
+          <br />
+          <br />
 
           {/* ВЫБЕРИТЕ ПЕРСОНАЖЕЙ */}
           <div className="mb-20">
@@ -293,10 +299,8 @@ function Rules() {
           </div>
           <main className="space-y-16">
             <section className="bg-[rgba(255,255,255,0.02)] p-8 rounded-2xl shadow-lg border border-[rgba(120,50,255,0.08)]">
-              <h2
-                className="text-[#b94cf6] text-2xl md:text-3xl font-semibold mb-4 uppercase "
-              >
-                ХОД ИГРЫ 
+              <h2 className="text-[#b94cf6] text-2xl md:text-3xl font-semibold mb-4 uppercase ">
+                ХОД ИГРЫ
               </h2>
               <div className="prose prose-invert max-w-none text-sm md:text-base">
                 <p>В каждом сайте игроки проходят следующие шаги:</p>
@@ -328,10 +332,8 @@ function Rules() {
                   типа вкладки совершите следующие шаги:
                 </p>
               </div>
-<br />  <br />
-              <h2
-                className="text-[#b94cf6] text-2xl md:text-3xl font-semibold mb-4"
-              >
+              <br /> <br />
+              <h2 className="text-[#b94cf6] text-2xl md:text-3xl font-semibold mb-4">
                 САЙТ С КОИНАМИ
               </h2>
               <div className="prose prose-invert max-w-none text-sm md:text-base">
@@ -377,9 +379,7 @@ function Rules() {
 
             {/* Section: Комната с трудностью + трап (long text) */}
             <section className="p-8 rounded-2xl bg-[rgba(255,255,255,0.015)] border border-[rgba(120,50,255,0.04)] shadow-lg">
-              <h3
-                className="text-[#b94cf6] text-2xl md:text-3xl font-semibold mb-4 uppercase"
-              >
+              <h3 className="text-[#b94cf6] text-2xl md:text-3xl font-semibold mb-4 uppercase">
                 КОМНАТА С ТРУДНОСТЬЮ:
               </h3>
 
@@ -440,22 +440,32 @@ function Rules() {
 
                   <ul className="space-y-3 text-sm text-gray-200 mt-2">
                     <li className="flex items-start gap-3">
-                      <span className="list-disc ml-6">- Вылет программы без сохранения: игрок с наибольшим количеством коинов теряет одно, два или три из них, если наибольшая разыгранная карта в этой комнате равна тройке, четверке или пятерке. Если у нескольких игроков наибольшее количество коинов, они несут потери.</span>
-                    <img
-                      src={trap1}
-                      alt="difficulty card 1"
-                      className="float-right ml-3 mb-2 w-16 object-contain ml-auto"
-                    />
-
+                      <span className="list-disc ml-6">
+                        - Вылет программы без сохранения: игрок с наибольшим
+                        количеством коинов теряет одно, два или три из них, если
+                        наибольшая разыгранная карта в этой комнате равна
+                        тройке, четверке или пятерке. Если у нескольких игроков
+                        наибольшее количество коинов, они несут потери.
+                      </span>
+                      <img
+                        src={trap1}
+                        alt="difficulty card 1"
+                        className="float-right ml-3 mb-2 w-16 object-contain ml-auto"
+                      />
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="list-disc ml-6">- Страница не найдена: игрок с наибольшим количеством зарядов теряет один, два или три заряда, если наибольшая разыгранная карта в этой комнате равна соответственно тройке, четверке или пятерке. Если у нескольких игроков наибольшее количество зарядов, они несут потери.</span>
+                      <span className="list-disc ml-6">
+                        - Страница не найдена: игрок с наибольшим количеством
+                        зарядов теряет один, два или три заряда, если наибольшая
+                        разыгранная карта в этой комнате равна соответственно
+                        тройке, четверке или пятерке. Если у нескольких игроков
+                        наибольшее количество зарядов, они несут потери.
+                      </span>
                       <img
                         src={trap2}
                         alt="difficulty card 2"
                         className="float-right ml-3 mb-2 w-16 object-contain ml-auto"
                       />
-                      
                     </li>
                     <img
                       src={trap3}
@@ -464,9 +474,14 @@ function Rules() {
                     />
 
                     <li className="flex items-start gap-3">
-                      <span className="list-disc ml-6">- Лабиринт страха: если наименьшая разыгранная в этой комнате карта равна 3, все теряют по одному коину. Если это двойка, все теряют по два коина. И, наконец, если это единица, все теряют половину своих коинов, округляя вниз.</span>
+                      <span className="list-disc ml-6">
+                        - Лабиринт страха: если наименьшая разыгранная в этой
+                        комнате карта равна 3, все теряют по одному коину. Если
+                        это двойка, все теряют по два коина. И, наконец, если
+                        это единица, все теряют половину своих коинов, округляя
+                        вниз.
+                      </span>
                     </li>
-
                   </ul>
                   <br />
                   {/* Дополнительные ловушки: Память диска и Отсутствие соединения */}
@@ -520,60 +535,55 @@ function Rules() {
                         className="w-40 object-contain rounded-md shadow-sm"
                       />
                     </div>
-                    
                   </div>
                   <div className="flex flex-wrap justify-between items-start gap-10">
-                  {/* Блок про карты памяти / предметы и финальное замечание */}
-                  <div className="flex-1 min-w-[410px] mt-6 text-sm text-gray-200">
-                    <p className="mt-3">
-                      - Сисадмин, антивирус, адблок, автосохранение, новый
-                      процессор: возьмите в руку одну карту из соответствующей
-                      колоды. Если несколько игроков хотят получить один и тот
-                      же предмет, а карт в колоде недостаточно, то никто не
-                      берет предмет.
-                    </p>
+                    {/* Блок про карты памяти / предметы и финальное замечание */}
+                    <div className="flex-1 min-w-[410px] mt-6 text-sm text-gray-200">
+                      <p className="mt-3">
+                        - Сисадмин, антивирус, адблок, автосохранение, новый
+                        процессор: возьмите в руку одну карту из соответствующей
+                        колоды. Если несколько игроков хотят получить один и тот
+                        же предмет, а карт в колоде недостаточно, то никто не
+                        берет предмет.
+                      </p>
 
-                    <p className="mt-4">
-                      Важно: Нет ограничения на количество карт, которые вы
-                      можете держать в руке. <br />- Стопка с 1/2/3 коинами —
-                      получите одно/два/три коина. Автосохранение: получите
-                      столько жизней, сколько нарисовано на нём.
-                    </p>
-                    <p className="mt-4">
-                      - Автосохранение: получите столько жизней, сколько
-                      нарисовано на нём. Если несколько игроков выбрали
-                      автосохранение, они получают заряды в полном объеме (не
-                      делят). <br /> Важно! Помните, что у вас не может быть
-                      больше 12 жизней.
-                    </p>
+                      <p className="mt-4">
+                        Важно: Нет ограничения на количество карт, которые вы
+                        можете держать в руке. <br />- Стопка с 1/2/3 коинами —
+                        получите одно/два/три коина. Автосохранение: получите
+                        столько жизней, сколько нарисовано на нём.
+                      </p>
+                      <p className="mt-4">
+                        - Автосохранение: получите столько жизней, сколько
+                        нарисовано на нём. Если несколько игроков выбрали
+                        автосохранение, они получают заряды в полном объеме (не
+                        делят). <br /> Важно! Помните, что у вас не может быть
+                        больше 12 жизней.
+                      </p>
 
-                    <p className="mt-4 font-semibold">
-                      Все игроки оставляют разыгранные ими карты силы лежать
-                      лицом вверх перед собой до конца уровня. Это означает, что
-                      прежде чем принимать решение, все могут посмотреть, какие
-                      карты уже были разыграны другими игроками.
-                    </p>
-                  </div>
-                  {/* Правая колонка — примерные карточки и набор небольших карт */}
-                  <div className="flex-1 min-w-[250px] flex justify-end">
+                      <p className="mt-4 font-semibold">
+                        Все игроки оставляют разыгранные ими карты силы лежать
+                        лицом вверх перед собой до конца уровня. Это означает,
+                        что прежде чем принимать решение, все могут посмотреть,
+                        какие карты уже были разыграны другими игроками.
+                      </p>
+                    </div>
+                    {/* Правая колонка — примерные карточки и набор небольших карт */}
+                    <div className="flex-1 min-w-[250px] flex justify-end">
                       <img
                         src={big_trap}
                         alt="Карта памяти"
                         className="w-75  object-contain rounded-2xl border border-[rgba(255,255,255,0.05)] shadow-lg"
                       />
                     </div>
+                  </div>
                 </div>
-                </div>
-
-
               </div>
             </section>
 
             {/* Section: Использование предметов */}
             <section className="p-8 rounded-2xl bg-[rgba(255,255,255,0.01)] border border-[rgba(120,50,255,0.03)] shadow-lg">
-              <h3
-                className="text-[#b94cf6] text-2xl md:text-3xl font-semibold mb-4 uppercase"
-              >
+              <h3 className="text-[#b94cf6] text-2xl md:text-3xl font-semibold mb-4 uppercase">
                 ИСПОЛЬЗОВАНИЕ ПРЕДМЕТОВ
               </h3>
 
@@ -709,9 +719,7 @@ function Rules() {
           </section>
           <Footer />
         </div>
-        
-      </section>
-      
+      </motion.section>
     </>
   );
 }

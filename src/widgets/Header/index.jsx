@@ -1,10 +1,17 @@
 import logo from "@shared/assets/images/logo.svg";
+import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import closeIcon from "./assets/close-icon.svg";
 import mobileHeader from "./assets/mobile-header.svg";
 
 function Header() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Prevent scrolling when mobile menu is open
@@ -31,14 +38,14 @@ function Header() {
   return (
     <>
       {/* Mobile Header */}
-      <header className="flex md:hidden text-white">
+      <motion.header className="flex md:hidden text-white">
         <button
           onClick={toggleMobileMenu}
           className="p-2 m-2 hover:bg-purple-500 duration-300 ease-in-out rounded cursor-pointer"
         >
           <img src={mobileHeader} alt="Открыть меню" />
         </button>
-      </header>
+      </motion.header>
 
       {/* Full Screen Mobile Menu */}
       <div
@@ -99,7 +106,12 @@ function Header() {
       </div>
 
       {/* PC Header */}
-      <header className="flex max-md:hidden justify-center items-center gap-7 py-[33px] font-regular max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] lowercase text-[#F5E2FF]">
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: isVisible ? 0 : -100 }}
+        transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+        className="flex max-md:hidden justify-center items-center gap-7 py-[33px] font-regular max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] lowercase text-[#F5E2FF]"
+      >
         <Link
           className="hover:text-[#BC13FE] hover:drop-shadow-[0_0_6px_#a855f7] duration-300 ease-in-out"
           to="/"
@@ -112,10 +124,16 @@ function Header() {
         >
           Персонажи
         </Link>
-        <img
+        <motion.img
           src={logo}
           alt="Лого"
-          className="w-[30px] lg:w-[40px] xl:w-[58px] max-md:w-7 max-md:h-7 mx-5 hover:rotate-y-180 duration-300 ease-in"
+          className="w-[30px] lg:w-[40px] xl:w-[58px] max-md:w-7 max-md:h-7 mx-5"
+          whileHover={{
+            rotateY: 180,
+          }}
+          whileTap={{
+            scale: 0.8,
+          }}
         />
         <Link
           className="hover:text-[#BC13FE] hover:drop-shadow-[0_0_6px_#a855f7] duration-300 ease-in-out"
@@ -129,7 +147,7 @@ function Header() {
         >
           Магазин
         </Link>
-      </header>
+      </motion.header>
     </>
   );
 }
