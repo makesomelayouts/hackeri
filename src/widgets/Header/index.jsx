@@ -100,15 +100,35 @@ function Header() {
 
       {/* PC Header */}
       <header className="flex max-md:hidden justify-center items-center gap-7 py-[33px] font-regular max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] lowercase text-[#F5E2FF]">
-        <Link to="/">Главная</Link>
-        <Link to="/characters">Персонажи</Link>
+        <Link
+          className="hover:text-[#BC13FE] hover:drop-shadow-[0_0_6px_#a855f7] duration-300 ease-in-out"
+          to="/"
+        >
+          Главная
+        </Link>
+        <Link
+          className="hover:text-[#BC13FE] hover:drop-shadow-[0_0_6px_#a855f7] duration-300 ease-in-out"
+          to="/characters"
+        >
+          Персонажи
+        </Link>
         <img
           src={logo}
           alt="Лого"
-          className="w-[30px] lg:w-[40px] xl:w-[58px] max-md:w-7 max-md:h-7 mx-5"
+          className="w-[30px] lg:w-[40px] xl:w-[58px] max-md:w-7 max-md:h-7 mx-5 hover:rotate-y-180 duration-300 ease-in"
         />
-        <Link to="/rules">Правила</Link>
-        <Link to="/shop">Магазин</Link>
+        <Link
+          className="hover:text-[#BC13FE] hover:drop-shadow-[0_0_6px_#a855f7] duration-300 ease-in-out"
+          to="/rules"
+        >
+          Правила
+        </Link>
+        <Link
+          className="hover:text-[#BC13FE] hover:drop-shadow-[0_0_6px_#a855f7] duration-300 ease-in-out"
+          to="/shop"
+        >
+          Магазин
+        </Link>
       </header>
     </>
   );
