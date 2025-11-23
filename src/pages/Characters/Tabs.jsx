@@ -295,7 +295,7 @@ export default function Tabs() {
         {/* Second Level */}
         {activeIndex !== null && (
           <div
-            className={`flex relative z-10 flex-wrap whitespace-nowrap items-center justify-center gap-8 gap-y-2 max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] lg:mt-14 md:mt-10 mt-4`}
+            className={`flex relative z-10 flex-wrap whitespace-nowrap items-center justify-center gap-8 gap-y-2 max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] lg:mt-14 md:mt-10 mt-6`}
           >
             {data[activeIndex].children.map((child, idx) =>
               activeSubIndex === idx ? (
@@ -322,7 +322,7 @@ export default function Tabs() {
       <div className="flex flex-col justify-center items-center px-5 text-white max-md:pb-8 md:pb-[200px] bg-[#010207]">
         {/* Third Level */}
         {activeSubIndex !== null && (
-          <div className="flex max-lg:flex-col max-lg:items-center max-lg:justify-center gap-16 gap-y-4 sm:p-4 max-lg:mt-4 lg:mt-[60px] max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] max-sm:w-full">
+          <div className="flex max-lg:flex-col max-lg:items-center max-lg:justify-center gap-16 gap-y-4 sm:p-4 max-lg:mt-6 lg:mt-[40px] max-sm:text-[12px] sm:text-sm md:text-base lg:text-xl xl:text-2xl 2xl:text-[32px] max-sm:w-full">
             <div className="sm:max-w-[300px] md:max-w-[400px] h-full flex justify-center items-center text-center border-[7px] border-[#BC13FE] bg-transparent">
               {mediaSrc ? (
                 isVideo ? (
