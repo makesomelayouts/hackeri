@@ -29,21 +29,17 @@ import trap3 from "@pages/Rules/assets/trap3.png";
 import trap4 from "@pages/Rules/assets/trap4.png";
 import trap5 from "@pages/Rules/assets/trap5.png";
 
-/**
- * Rules.jsx
- * Полностью адаптивный компонент страницы правил (React + Tailwind).
- *
- * Комментарии:
- * - Я использовал гибкие контейнеры (flex / grid / flex-wrap) и адаптивные брейкпоинты (sm/md/lg).
- * - Все ширины картинок ограничены через w-full + max-w-*, чтобы картинки никогда не вылезали.
- * - Для списка с картинками справа применён grid (1fr auto) — текст будет переноситься под картинку на узких экранах.
- *
- * Просто положи файл в проект и используй как раньше.
- */
+
 
 function Rules() {
   return (
     <>
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 2 } }}
+        className="snap-start flex flex-col bg-[#0c0014] min-h-screen"
+      >
+
       <section className="snap-start flex flex-col bg-[#0c0014] min-h-screen text-white">
         <Header />
 
