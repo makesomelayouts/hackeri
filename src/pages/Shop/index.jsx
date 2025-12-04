@@ -37,7 +37,7 @@ function Shop() {
             <Button text="найти" link="/" />
           </div>
 
-          <div className="flex-1 min-w-[300px] flex justify-center">
+          <div className="flex-1 min-w-[200px] flex justify-center">
             <img
               src={SCAM_box}
               alt="Хакеры коробка"
