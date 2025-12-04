@@ -22,29 +22,42 @@ function Shop() {
         className="snap-start flex flex-col"
       >
         <Header />
-        <section></section>
-        <div className="flex flex-col justify-center items-center">
-          <img className="max-w-[575px] max-h-[774px]" src={SCAM_hello_subs} />
-        </div>
-        <section className="flex flex-wrap items-center justify-between max-w-[1200px] mx-auto px-5 py-16 gap-10 text-white ">
-          <div className="flex-1 min-w-[300px] max-w-[500px]">
-            <p className="leading-relaxed text-base mb-6">
-              Стильная модная молодежная игра для взрослых и подростков. Матовая
-              черная коробка, набор стикеров, карты с уникальными персонажами и
-              многое другое! Играйте, взламывайте сайты, узнавайте что-то новое
-              и сражайтесь с самыми опасными вирусами и трудностями!
-            </p>
-            <Button text="найти" link="/" />
-          </div>
+  {/* Блок с первым изображением */}
+  <div className="flex flex-col justify-center items-center py-10 px-4">
+    <img
+      className="max-w-[575px] max-h-[774px] w-full object-contain"
+      src={SCAM_hello_subs}
+      alt=""
+    />
+  </div>
 
-          <div className="flex-1 min-w-[200px] flex justify-center">
-            <img
-              src={SCAM_box}
-              alt="Хакеры коробка"
-              className="w-full max-w-[400px] rounded-xl"
-            />
-          </div>
-        </section>
+  {/* Основной адаптивный блок */}
+  <section className="flex flex-col lg:flex-row items-center justify-between max-w-[1200px] mx-auto px-5 py-16 gap-12 text-white">
+
+    {/* Левый текстовый блок */}
+    <div className="flex-1 min-w-[280px] max-w-[540px]">
+      <p className="leading-relaxed text-base mb-6">
+        Стильная модная молодежная игра для взрослых и подростков.
+        Матовая черная коробка, набор стикеров, карты с уникальными
+        персонажами и многое другое! Играйте, взламывайте сайты,
+        узнавайте новое и сражайтесь с самыми опасными вирусами
+        и трудностями!
+      </p>
+
+      <Button text="найти" link="/" />
+    </div>
+
+    {/* Правый блок с изображением */}
+    <div className="flex-1 min-w-[260px] flex justify-center lg:justify-end shrink-0">
+      <img
+        src={SCAM_box}
+        alt="Хакеры коробка"
+        className="w-full max-w-[380px] lg:max-w-[420px] rounded-xl object-contain"
+      />
+    </div>
+
+  </section>
+
 
         <Footer />
       </motion.section>
