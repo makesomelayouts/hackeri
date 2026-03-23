@@ -27,6 +27,7 @@ import trap2 from "@pages/Rules/assets/trap2.png";
 import trap3 from "@pages/Rules/assets/trap3.png";
 import trap4 from "@pages/Rules/assets/trap4.png";
 import trap5 from "@pages/Rules/assets/trap5.png";
+import { motion } from "motion/react";
 
 export default function Rules() {
   return (
