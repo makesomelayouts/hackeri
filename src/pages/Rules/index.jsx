@@ -642,6 +642,6 @@ export default function Rules() {
           <Footer />
         </section>
       </motion.section>
-      );
-    </>)
+    </>
+  )
 }
