@@ -20,18 +20,9 @@ function Footer() {
   return (
     <footer className="py-6 md:py-[42px] px-4 bg-[#0D031B] z-10">
       <div className="max-md:flex-col max-w-[1140px] mx-auto flex flex-wrap justify-between items-center">
-        {currentYear === "2025" ? (
-          <p className="text-[#f5e2ff] max-sm:text-[12px] sm:text-sm lg:text-xl xl:text-2xl 2xl:text-[32px]">
-            2025 © Хацкеры
-          </p>
-        ) : (
-          currentYear > "2025" && (
-            <p className="text-[#f5e2ff] max-sm:text-[12px] sm:text-sm lg:text-xl xl:text-2xl 2xl:text-[32px]">
-              2025 — {currentYear} © Хацкеры
-            </p>
-          )
-        )}
-
+        <p className="text-[#f5e2ff] max-sm:text-[12px] sm:text-sm lg:text-xl xl:text-2xl 2xl:text-[32px]">
+          2025 © Хацкеры
+        </p>
         <p className="py-2 text-[#f5e2ff] max-sm:text-[12px] sm:text-sm lg:text-xl xl:text-2xl 2xl:text-[32px]">
           tg: (
           <span className="max-md:block md:inline max-md:leading-6">
